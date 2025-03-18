@@ -256,7 +256,6 @@ task clean {
     group = 'Clean'
     cleanLocalMavenRepos.dependsOn cleanRealm
     cleanLocalMavenRepos.dependsOn cleanGradlePlugin
-    cleanLocalMavenRepos.dependsOn cleanExamples
     dependsOn cleanLocalMavenRepos
 }
 
