@@ -77,9 +77,8 @@ task checkRealm(type:GradleBuild) {
 
 task check {
     group = 'Test'
-    description = 'Run the JVM tests and checks in the realm and examples projects'
+    description = 'Run the JVM tests and checks in the realm'
     dependsOn checkRealm
-    dependsOn checkExamples
 }
 
 task assembleUnitTests(type:GradleBuild) {
@@ -187,8 +186,7 @@ task sourcesJar(type:GradleBuild) {
 
 task assemble {
     group 'Build'
-    description = 'Build Realm, the Gradle plugin and the examples'
-    dependsOn assembleExamples
+    description = 'Build Realm, the Gradle plugin'
 }
 
 task distributionPackage(type:Zip) {
@@ -211,12 +209,6 @@ task distributionPackage(type:Zip) {
     from('realm/realm-library/build/docs') {
         include '**/*'
         into 'docs'
-    }
-    from('examples') {
-        exclude 'local.properties'
-        exclude '**/.gradle'
-        exclude '**/build'
-        into 'examples'
     }
 }
 
