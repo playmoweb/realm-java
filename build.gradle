@@ -65,16 +65,6 @@ task assembleRealm(type:GradleBuild) {
     }
 }
 
-task checkExamples(type:GradleBuild) {
-    group = 'Test'
-    description = 'Run the JVM tests and checks the examples'
-    buildFile = file('examples/build.gradle')
-    tasks = ['check']
-    if (project.hasProperty('buildTargetABIs')) {
-        startParameter.projectProperties += [buildTargetABIs: project.getProperty('buildTargetABIs')]
-    }
-}
-
 task checkRealm(type:GradleBuild) {
     group = 'Test'
     description = 'Run the JVM tests and checks Realm project'
@@ -175,24 +165,6 @@ task installRealmJava(type:Task) {
     description = 'Install the Realm library and Gradle plugin into mavenLocal()'
 }
 
-task assembleExamples(type:GradleBuild) {
-    dependsOn installGradlePlugin
-    dependsOn installRealm
-    group = 'Build'
-    description = 'Assemble the Realm examples'
-    buildFile = file('examples/build.gradle')
-    tasks = ['assemble']
-}
-
-task monkeyExamples(type:GradleBuild) {
-    dependsOn installGradlePlugin
-    dependsOn installRealm
-    group = 'Build'
-    description = 'Run the monkey tests on the Realm examples'
-    buildFile = file('examples/build.gradle')
-    tasks = ['monkeyRelease']
-}
-
 task javadoc(type:GradleBuild) {
     description = 'Generate the Javadoc Jar for the Realm project'
     group = 'Docs'
@@ -278,13 +250,6 @@ task cleanGradlePlugin(type:GradleBuild) {
     description = 'Clean the Realm Gradle plugin project'
     group = 'Clean'
     buildFile = file('gradle-plugin/build.gradle')
-    tasks = ['clean']
-}
-
-task cleanExamples(type:GradleBuild) {
-    description = 'Clean the Realm examples'
-    group = 'Clean'
-    buildFile = file('examples/build.gradle')
     tasks = ['clean']
 }
 
