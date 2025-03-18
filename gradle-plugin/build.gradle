@@ -48,10 +48,10 @@ sourceSets {
 }
 
 dependencies {
-    compile gradleApi()
-    compile localGroovy()
-    compile "io.realm:realm-transformer:${version}"
-    compile 'com.neenbedankt.gradle.plugins:android-apt:1.8'
+    implementation gradleApi()
+    implementation localGroovy()
+    implementation "io.realm:realm-transformer:${version}"
+    implementation 'com.neenbedankt.gradle.plugins:android-apt:1.8'
     provided 'com.android.tools.build:gradle:2.1.0'
 
     testImplementation gradleTestKit()
