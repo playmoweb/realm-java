@@ -54,8 +54,8 @@ dependencies {
     compile 'com.neenbedankt.gradle.plugins:android-apt:1.8'
     provided 'com.android.tools.build:gradle:2.1.0'
 
-    testCompile gradleTestKit()
-    testCompile 'junit:junit:4.12'
+    testImplementation gradleTestKit()
+    testImplementation 'junit:junit:4.12'
 }
 
 //for Ant filter
