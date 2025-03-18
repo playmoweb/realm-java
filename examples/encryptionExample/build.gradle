@@ -1,0 +1,32 @@
+apply plugin: 'com.android.application'
+apply plugin: 'android-command'
+apply plugin: 'realm-android'
+
+android {
+    compileSdkVersion rootProject.sdkVersion
+    buildToolsVersion rootProject.buildTools
+
+    defaultConfig {
+        applicationId 'examples.realm.io.encryptionExample'
+        targetSdkVersion rootProject.sdkVersion
+        minSdkVersion 14
+        versionCode 1
+        versionName '1.0'
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled true
+            signingConfig signingConfigs.debug
+        }
+        debug {
+            minifyEnabled true
+        }
+    }
+    productFlavors {
+    }
+
+    command {
+        monkey.events 2000
+    }
+}
